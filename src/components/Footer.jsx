@@ -19,6 +19,11 @@ export default function Footer() {
                     <p className="footerLink">Trip details</p>
                 </Link>
             </div>
+            <div>
+                <Link to='/tripinspo'>
+                    <p className="footerLink">Trip Inspo</p>
+                </Link>
+            </div>
         </ul>
     </div>
     )

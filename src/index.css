@@ -211,16 +211,61 @@ p {
 /* footer styles */
 
 .footerBody {
-  bottom: .5rem;
+  top: .5rem;
   position: absolute;
-  left: .5rem;
+  right: 1rem;
 }
 
 .footerLink {
   color: white;
-  padding: .2rem;
+  padding-left: 1rem;
 }
 
 .footerLink:hover {
   text-decoration: underline;
 }
+
+/* inspo styles */
+
+.inspoBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inspoImg {
+  height: 130px;
+  width: auto;
+  border-radius: 10%;
+}
+
+.tripInspoDetailBody {
+  max-width: 500px;
+  color: white;
+}
+
+.deetsImg {
+  width: 500px;
+  border-radius: 5%;
+}
+
+.deetsDate {
+  font-size: 30px;
+  font-weight: 600px;
+  color: white;
+}
+
+.deetsIdeas {
+  color: white;
+  font-size: 20px;
+}
+
+.notFound {
+  color: white;
+}
+
+/* .tripNotFound {
+  color: white;
+  font-size: 50px;
+} */

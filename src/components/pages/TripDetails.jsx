@@ -1,6 +1,7 @@
 import ActivityList from '../activities/ActivityList';
 import Footer from '../Footer';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 
 export default function TripDetails() {
     const [activities, setActivities] = useState(() => {

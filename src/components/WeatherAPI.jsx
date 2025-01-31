@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo, useMemo } from "react";
 
 export default function WeatherAPI() {
     // use state hook to store weather data and errors
@@ -47,6 +47,17 @@ export default function WeatherAPI() {
         getLocation();
       }, []);
 
+    // use useMemo to memoize processed weather data
+    const memoizedWeatherData = useMemo(() => {
+        if (!weatherData) return null;
+        return {
+            city: weatherData.name,
+            temp: weatherData.main.temp,
+            weather: weatherData.weather[0].description,
+            windSpeed: weatherData.wind.speed,
+        };
+    }, [weatherData]);
+
     return (
         <div>
             {loading && (
@@ -55,12 +66,12 @@ export default function WeatherAPI() {
                 </div>
             )}
             {error && <p style={{ color: "red" }}>{error}</p>}
-            {weatherData && (
+            {memoizedWeatherData && (
                 <div className="weatherBox">
-                    <p>City: {weatherData.name}</p>
-                    <p>Temperature: {weatherData.main.temp}°C</p>
-                    <p>Weather: {weatherData.weather[0].description}</p>
-                    <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+                    <p>City: {memoizedWeatherData.city}</p>
+                    <p>Temperature: {memoizedWeatherData.temp}°C</p>
+                    <p>Weather: {memoizedWeatherData.weather}</p>
+                    <p>Wind Speed: {memoizedWeatherData.windSpeed} m/s</p>
                 </div>
             )}
         </div>
